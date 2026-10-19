@@ -1,0 +1,328 @@
+:root {
+  --color-ems: #2b5c8f;
+  --color-traffic: #d9822b;
+  --color-fire: #708c69;
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-controls: #f0f4f9;
+  --border-controls: #d9e2ec;
+  --border-card: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --accent-blue: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dashboard-wrapper {
+  background: var(--bg-card);
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  padding: 32px 36px 28px 36px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Header */
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.dashboard-header .subtitle {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.dashboard-header .subtitle strong {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Controls Panel */
+.controls-panel {
+  background-color: var(--bg-controls);
+  border: 1px solid var(--border-controls);
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Observable Inputs Customization to match reference image */
+.controls-panel .control-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls-panel .control-col-left {
+  flex: 1 1 auto;
+}
+
+.controls-panel .control-col-right {
+  flex: 0 0 320px;
+}
+
+/* Hide or override default Inputs form styling to match clean UI */
+.controls-panel form.inputs-3a86ea {
+  font-family: inherit;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.controls-panel form.inputs-3a86ea > label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 2px;
+  width: auto;
+}
+
+/* Radio buttons container */
+.controls-panel form.inputs-3a86ea > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.controls-panel form.inputs-3a86ea label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+  margin: 0;
+  user-select: none;
+}
+
+.controls-panel input[type="radio"] {
+  accent-color: #0284c7;
+  cursor: pointer;
+  margin: 0;
+  width: 14px;
+  height: 14px;
+}
+
+/* Slider and number box */
+.controls-panel .inputs-3a86ea-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls-panel input[type="number"] {
+  width: 82px;
+  height: 26px;
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: 12px;
+  border: 1px solid #94a3b8;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #1e293b;
+  text-align: right;
+  outline: none;
+}
+
+.controls-panel input[type="number"]:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+.controls-panel input[type="range"] {
+  flex: 1;
+  accent-color: #0284c7;
+  height: 5px;
+  cursor: pointer;
+}
+
+/* Chart Container */
+.chart-container {
+  width: 100%;
+  margin: 10px 0 24px 0;
+  min-height: 250px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.chart-container svg {
+  overflow: visible;
+  max-width: 100%;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+/* Plot styling enhancements */
+.chart-container svg text {
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* Cards Section */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-radius: 8px;
+  padding: 14px 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card.card-ems {
+  border-left-color: var(--color-ems);
+}
+
+.stat-card.card-traffic {
+  border-left-color: var(--color-traffic);
+}
+
+.stat-card.card-fire {
+  border-left-color: var(--color-fire);
+}
+
+.stat-card.dimmed {
+  opacity: 0.35;
+  filter: grayscale(40%);
+}
+
+.stat-card.highlighted {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3), 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.stat-card .card-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.stat-card .card-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.stat-card .card-description {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* Footer Section */
+.dashboard-footer {
+  border-top: 1px solid var(--border-card);
+  padding-top: 16px;
+}
+
+.dashboard-footer .utility-formula {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.dashboard-footer .utility-formula strong {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.dashboard-footer .source-link {
+  font-size: 13px;
+  color: #475569;
+}
+
+.dashboard-footer .source-link a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dashboard-footer .source-link a:hover {
+  text-decoration: underline;
+}
+
+/* Tooltip badge for extra hover inspection */
+.hover-info-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #334155;
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    padding: 20px;
+  }
+  .controls-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .controls-panel .control-col-right {
+    flex: 1 1 auto;
+  }
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
